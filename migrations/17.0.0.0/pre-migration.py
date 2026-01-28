@@ -1,7 +1,9 @@
 from odoo.upgrade import util
+import logging
+_logger = logging.getLogger(__name__)
 
 def migrate(cr, version):
-
+    _logger.warning("### QUEMEN MIGRATION HELPER PRE-MIGRATION EXECUTED ###")
     # sms.sms: evitar operaciones costosas en tablas grandes
     util.alter_column_type(cr, "sms_sms", "uuid", "varchar")
     util.create_column(cr, "sms_sms", "to_delete", "bool", default=False)
