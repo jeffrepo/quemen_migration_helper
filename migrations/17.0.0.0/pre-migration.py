@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from odoo.upgrade import util
 import logging
 _logger = logging.getLogger(__name__)
@@ -14,3 +16,6 @@ def migrate(cr, version):
     util.create_column(cr, "pos_order", "l10n_mx_edi_is_cfdi_needed", "bool")
     util.create_column(cr, "pos_order", "l10n_mx_edi_cfdi_to_public", "bool")
     util.create_column(cr, "pos_order", "l10n_mx_edi_usage", "varchar", default="'G03'")
+
+    # También te salió warning de config_id
+    util.create_column(cr, "pos_order", "config_id", "int4")
